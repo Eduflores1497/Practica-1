@@ -1,0 +1,295 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\newcommand{\salto}[1][2]{\par\vspace{#1mm}}
+
+\renewcommand{\arraystretch}{2.25}
+
+\author{Adrián Rivera Ramírez}
+\title{Simulación II - Formulario}
+
+\decimalpoint
+
+\begin{document}
+\maketitle
+\section{Distribuciones de probabilidad}
+\subsection{Continuas}
+\salto[5]
+
+\subsubsection*{Uniforme continua}
+\begin{center}
+	\begin{tabular}{p{0.38\textwidth}|p{0.55\textwidth}}
+	\multicolumn{2}{c}{U$(a,b)$} \\
+	\hline
+	Parámetros & $a,b\in\mathbb{R}\colon a<b\,;$ donde $a$ es un parámetro de ubicación y $b-a$ un parámetro de escala \\
+	Dominio & $x\in [a,b]$ \\
+	Función de densidad & $f(x) = \dfrac{1}{b - a}$ \\
+	Distribución acumulada & $F(x) = \dfrac{x - a}{b - a}$ \\
+	Media & $\dfrac{a + b}{2}$ \\
+	Mediana & $\dfrac{a + b}{2}$ \\
+	Moda & Cualquier valor en $[a,b]$ \\
+	Varianza & $\dfrac{(b - a)^2}{12}$
+	\end{tabular}
+	\begin{tabular}{p{0.38\textwidth}|p{0.55\textwidth}}
+	Coeficiente de simetría & $0$ \\
+	Curtosis & $-\dfrac{6}{5}$ \\
+	Entropía & $\ln(b - a)$ \\
+	Generadora de momentos & $\dfrac{e^{tb} - e^{ta}}{t(b - a)}$ \\
+	Función característica & $\dfrac{e^{itb} - e^{ita}}{it(b - a)}$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Uniforme continua}
+	\end{tabular}
+\end{center}
+\salto[20]
+
+\subsubsection*{Exponencial}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Exp$(\lambda)$} \\
+	\hline
+	Parámetros & $\lambda > 0$ \\
+	Dominio & $x\in [0,\infty )$ \\
+	Función de densidad & $f(x) = \lambda e^{-\lambda x}$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	Distribución acumulada & $F(x) = 1 - e^{-\lambda x}$ \\
+	Media & $\dfrac{1}{\lambda}$ \\
+	Mediana & $\dfrac{\ln 2}{\lambda}$ \\
+	Moda & $0$ \\
+	Varianza & $\dfrac{1}{\lambda^2}$ \\
+	Coeficiente de simetría & $2$ \\
+	Curtosis & $9$ \\
+	Entropía & $1 - \ln\lambda$ \\
+	Generadora de momentos & $\left( 1 - \dfrac{t}{\lambda} \right)^{-1}$ \\
+	Función característica & $\left( 1 - \dfrac{it}{\lambda} \right)^{-1}$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Exponencial}
+	\end{tabular}
+\end{center}
+
+\subsubsection*{De Weibull}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Weibull$(\alpha ,\lambda)$} \\
+	\hline
+	Parámetros & $\alpha ,\lambda > 0\,;$ donde $\alpha$ es un parámetro de forma y $\lambda$ un parámetro de escala \\
+	Dominio & $x\in (0,+\infty )$ \\
+	Función de densidad & $f(x) = \lambda\alpha (\lambda x)^{\alpha - 1}e^{-(\lambda x)^\alpha}$ \\
+	Distribución acumulada & $F(x) = 1 - e^{-(\lambda x)^\alpha}$ \\
+	Media & $\dfrac{1}{\lambda}\Gamma\left( 1 + \dfrac{1}{\alpha}\right)$ \\
+	Mediana & $\dfrac{1}{\lambda}(\ln 2)^{\frac{1}{\alpha}}$ \\
+	Moda & $\dfrac{1}{\lambda}\left( \dfrac{\alpha - 1}{\alpha} \right)^{\frac{1}{\alpha}},\quad\:\text{si}\quad\alpha > 1$ \\
+	Varianza & $\dfrac{1}{\lambda^2}\left[ \Gamma\left(1 + \dfrac{2}{\alpha}\right) - \Gamma^2\left(1 + \dfrac{1}{\alpha}\right) \right]$ \\
+	Coeficiente de simetría & $\dfrac{1}{\sigma^3}\left[ \dfrac{1}{\lambda^3}\Gamma\left(1 + \dfrac{3}{\alpha}\right) - 3\mu\sigma^2 - \mu^3 \right]$ \\
+	Entropía & $\Gamma\left(1 - \dfrac{1}{\alpha}\right) + \ln\left(\dfrac{1}{\lambda\alpha}\right) + 1$ \\
+	Generadora de momentos & $\displaystyle{\sum_{n=0}^\infty \frac{t^n}{n!\lambda^n}\Gamma\left(1 + \frac{n}{\alpha}\right)\, ,\quad\alpha\geq 1}$ \\
+	Función característica & $\displaystyle{\sum_{n=0}^\infty \frac{(it)^n}{n!\lambda^n}\Gamma\left(1 + \frac{n}{\alpha}\right)}$ \\
+	Gráfica de $f(x)$ & \vspace{-0.5cm}\includegraphics[width = 0.35\textwidth, height = 0.26\textwidth]{Weibull}
+	\end{tabular}
+\end{center}
+
+\subsubsection*{Triangular}
+\begin{center}
+	\begin{tabular}{p{0.33\textwidth}|p{0.6\textwidth}}
+	\multicolumn{2}{c}{T$(a,b,c)$} \\
+	\hline
+	Parámetros & $a,b,c\in\mathbb{R}\colon a < b,\, a\leq c\leq b$ \\
+	Función de densidad & $f(x) = \left\{\begin{array}{lcc}
+             \dfrac{2(x - a)}{(b - a)(c - a)} & \text{si} & a\leq x < c \\
+             \dfrac{2}{b - a} & \text{si} & x = c \\
+             \dfrac{2(b - x)}{(b - a)(b - c)} & \text{si} & c < x\leq b
+             \end{array}\right.$ \\
+	\vspace{1.7cm}Distribución acumulada & \vspace{1mm}$F(x) = \left\{\begin{array}{lcc}
+             \dfrac{(x - a)^2}{(b - a)(c - a)} & \text{si} & a < x\leq c \\
+             1 - \dfrac{(b - x)^2}{(b - a)(b - c)} & \text{si} & c < x < b \\
+             1 & \text{si} & x\geq b
+             \end{array}\right.$ \\
+	\vspace{0.3cm}Media & \vspace{1mm}$\dfrac{a + b + c}{3}$ \\
+	\vspace{1.1cm}Mediana & \vspace{1mm}$\left\{\begin{array}{lcc}
+             a + \dfrac{\sqrt{(b - a)(c - a)}}{\sqrt{2}} & \text{si} & c\geq\dfrac{a + b}{2} \\
+             b - \dfrac{\sqrt{(b - a)(b - c)}}{\sqrt{2}} & \text{si} & c < \dfrac{a + b}{2}
+             \end{array}\right.$ \\
+	Moda & $c$ \\
+	Varianza & $\dfrac{a^2 + b^2 + c^2 - ab - ac - bc}{18}$ \\
+	Curtosis & $-\dfrac{3}{5}$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	Entropía & $\dfrac{1}{2} + \ln\left(\dfrac{b - a}{2}\right)$ \\
+	Generadora de momentos & $2\dfrac{(b - c)e^{at} - (b - a)e^{ct} + (c - a)e^{bt}}{(b - c)(b - a)(c - a)t^2}$ \\
+	Función característica & $- 2\dfrac{(b - c)e^{iat} - (b - a)e^{ict} + (c - a)e^{ibt}}{(b - c)(b - a)(c - a)t^2}$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{1mm}\includegraphics[width = 0.5\textwidth]{Triangular}
+	\end{tabular}
+\end{center}
+\salto[35]
+
+\subsubsection*{Normal}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{N$(\mu,\sigma^2)$} \\
+	\hline
+	Parámetros & $\mu\in\mathbb{R}$\par $\sigma > 0$ \\
+	Dominio & $x\in\mathbb{R}$ \\
+	Función de densidad & $\phi(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2}}$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	Distribución acumulada & $\Phi(x) = N(x) = \dfrac{1}{2}\left[ 1 + \text{erf}\left( \dfrac{x - \mu}{\sigma\sqrt{2}} \right) \right]$ \\
+	Media & $\mu$ \\
+	Mediana & $\mu$ \\
+	Moda & $\mu$ \\
+	Varianza & $\sigma^2$ \\
+	Coeficiente de simetría & $0$ \\
+	Curtosis & $0$ \\
+	Entropía & $\ln(\sigma\sqrt{2\pi e})$ \\
+	Generadora de momentos & $M_X(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}$ \\
+	Función característica & $\chi_X(t) = e^{\mu it - \frac{\sigma^2 t^2}{2}}$ \\
+	\vspace{0.25cm}Gráfica de $\phi(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Normal}
+	\end{tabular}
+\end{center}
+
+\subsubsection*{Lognormal}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Lognormal$(\mu,\sigma^2)$} \\
+	\hline
+	Parámetros & $\mu\in\mathbb{R}$\par $\sigma > 0$ \\
+	Dominio & $x\in(0,\infty)$ \\
+	Función de densidad & $f(x) = \dfrac{1}{x\sigma\sqrt{2\pi}}\exp\left( -\dfrac{(\ln x - \mu)^2}{2\sigma^2} \right)$ \\
+	Distribución acumulada & $F(x) = \Phi(\ln x) = N(\ln x)$ \\
+	Media & $e^{\mu + \frac{\sigma^2}{2}}$ \\
+	Mediana & $e^\mu$ \\
+	Moda & $e^{\mu - \sigma^2}$ \\
+	Varianza & $e^{2\mu + \sigma^2}(e^{\sigma^2} - 1)$ \\
+	Coeficiente de simetría & $(e^{\sigma^2} + 2)\sqrt{e^{\sigma^2} - 1}$ \\
+	Entropía & $\log_2(\sigma e^{\mu + \frac{1}{2}}\sqrt{2\pi})$ \\
+	\vspace{0.45cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.42\textwidth]{Lognormal}
+	\end{tabular}
+\end{center}
+\newpage
+
+\subsection{Discretas}
+\salto[5]
+
+\subsubsection*{Uniforme discreta}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Uniforme$(x_1,x_2,\ldots,x_n) = \text{U}(n)$} \\
+	\hline
+	Función de probabilidad & $P(X = x_i) = \dfrac{1}{n}\, ,\,$ siendo $\; x_i\neq x_j$\par para $\; i,j = 1,\ldots,n\;$ y $\; j\neq i$ \\
+	Distribución acumulada & $F(x_i) = P(X\leq x_i) = \dfrac{i}{n}$ \\
+	Media & $E[X] = \mu = \displaystyle{\frac{1}{n}\sum_{i = 1}^n x_i}$ \\
+	Moda & Cualquier valor en $X = \{x_1,\ldots,x_n\}$ \\
+	Varianza & $Var[X] = \sigma^2 = \displaystyle{\frac{1}{n}\sum_{i = 1}^n (x_i - \mu)^2}$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Uniforme discreta}
+	\end{tabular}
+\end{center}
+
+\subsubsection*{De Bernoulli o dicotómica}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Bernoulli$(p)$} \\
+	\hline
+	Parámetros & $0 < p < 1\,;\,$ donde $p$ es la probabilidad de éxito \\
+	Dominio & $x = \{0,1\}$ \\
+	Función de probabilidad & $f(x) = p^x q^{1 - x},\,$ con $\; q = 1 - p$ \\
+	Distribución acumulada & $F(x) = \left\{\begin{array}{lcc}
+             q & \text{si} & x = 0 \\
+             1 & \text{si} & x = 1
+             \end{array}\right.$ \\
+	Media & $p$ \\
+	Moda & $\left\{\begin{array}{lcc}
+             0 & \text{si} & q > p \\
+             0,1 & \text{si} & q = p \\
+             1 & \text{si} & q < p
+             \end{array}\right.$ \\
+	Varianza & $pq$ \\
+	Coeficiente de simetría & $\dfrac{q - p}{\sqrt{pq}}$ \\
+	Curtosis & $\dfrac{3p^2 - 3p + 1}{pq}$ \\
+	Entropía & $- q\ln q - p\ln p$ \\
+	Generadora de momentos & $1 - p + pe^t$ \\
+	Función característica & $1 - p + pe^{it}$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\vspace{0.25cm}Gráfica de $f(x)$ con $p$ dado & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Bernoulli}
+	\end{tabular}
+\end{center}
+\salto[20]
+
+\subsubsection*{Binomial}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Bin$(n,p)$} \\
+	\hline
+	Parámetros & $n\geq 0\,$ número entero de ensayos\par $0\leq p\leq 1\,$ probabilidad de éxito \\
+	Dominio & $x\in\{0,1,\ldots,n\}$ \\
+	Función de probabilidad & $\displaystyle{f(x) = \binom{n}{x}p^x q^{1 - x},\,}$ con $\; q = 1 - p$ \\
+	Distribución acumulada & $F(x) = I_{1-p}(n - \lfloor x\rfloor, \lfloor x\rfloor + 1);$ donde $I$ es la función beta incompleta regularizada \\
+	Media & $np$ \\
+	Mediana & Uno de $\{\lfloor np\rfloor, \lceil np\rceil\}$ \\
+	Moda & $\lfloor(n + 1)p\rfloor$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	Varianza & $npq$ \\
+	Coeficiente de simetría & $\dfrac{1 - 2p}{\sqrt{npq}}$ \\
+	Curtosis & $\dfrac{1 - 6pq}{npq} + 3$ \\
+	Entropía & $\dfrac{1}{2}\ln(2\pi nepq) + O\hspace{-2pt}\left(\dfrac{1}{n}\right)$ \\
+	Generadora de momentos & $(1 - p + pe^t)^n$ \\
+	Función característica & $(1 - p + pe^{it})^n$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Binomial}
+	\end{tabular}
+\end{center}
+\salto[20]
+
+\subsubsection*{De Poisson}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Poisson$(\lambda) = \text{Poi}(\lambda)$} \\
+	\hline
+	Parámetros & $\lambda\in(0,\infty)$ \\
+	Dominio & $x\in\{0,1,2,\ldots\}$ \\
+	Función de probabilidad & $f(x) = \dfrac{e^{-\lambda}\lambda^x}{x!}$
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	Distribución acumulada & $F(x) = \dfrac{\Gamma(\lfloor x + 1\rfloor, \lambda)}{\lfloor x\rfloor!}\,;\,$ para $x\geq 0$,\salto[2] donde $\Gamma$ es la función gamma incompleta \\
+	Media & $\lambda$ \\
+	Mediana & Usualmente cerca de $\lfloor\lambda + \frac{1}{3} - \frac{0.02}{\lambda}\rfloor$ \\
+	Moda & $\lceil\lambda\rceil + 1$ \\
+	Varianza & $\lambda$ \\
+	Coeficiente de simetría & $\lambda^{-0.5}$ \\
+	Curtosis & $3 + \dfrac{1}{\lambda}$ \\
+	Entropía & $\displaystyle{\lambda(1 - \ln\lambda) + e^{-\lambda}\sum_{x = 0}^\infty\frac{\lambda^x\ln(x!)}{x1}}$ \\
+	Generadora de momentos & $e^{\lambda(e^t - 1)}$ \\
+	Función característica & $e^{\lambda(e^{it} - 1)}$ \\
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Poisson}
+	\end{tabular}
+\end{center}
+
+\subsubsection*{Geométrica}
+\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\multicolumn{2}{c}{Geométrica$(p) = \text{Geo}(p)$} \\
+	\hline
+	Parámetros & $0 < p < 1\,;\,$ donde $p$ es la probabilidad de éxito  \\
+	Dominio & $x\in\mathbb{N}\,$ si $x$ es el número de intentos para obtener un éxito\salto $\,x\in\mathbb{N}_0\,$ si $x$ es el número de fracasos antes del primer éxito\salto A continuación, se trabajará con el primer caso. Para trabajar con el segundo, sólo se aplica el cambio $\,x = x - 1$
+	 \\
+	Función de probabilidad & $f(x) = pq^{x - 1},\,$ con $\; q = 1 - p$ \\
+	Distribución acumulada & $F(x) = 1 - q^x$ \\
+	Media & $\dfrac{1}{p}$ \\
+	Moda & $0$ \\
+	Varianza & $\dfrac{1 - p}{p^2}$ \\
+	Coeficiente de simetría & $\dfrac{2 - p}{\sqrt{1 - p}}$ \\
+	Curtosis & $6 + \dfrac{p^2}{1 - p}$ \\
+	Entropía & $\dfrac{1}{p}(-q\log_2q - p\log_2p)$ \\
+	Generadora de momentos & $\dfrac{p}{1 - qe^t}$ 
+	\end{tabular}
+	\begin{tabular}{p{0.4\textwidth}|p{0.53\textwidth}}
+	\vspace{0.25cm}Gráfica de $f(x)$ & \vspace{0.1mm}\includegraphics[width = 0.5\textwidth]{Geométrica}
+	\end{tabular}
+\end{center}
+
+
+\end{document}
